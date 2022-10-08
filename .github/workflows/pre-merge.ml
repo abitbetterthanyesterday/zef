@@ -1,6 +1,6 @@
 name: 'Redwood Build, Lint, Diagnostics, and Tests'
 run-name: 'Run CI on a Redwood Project'
-on: ['pull_request', 'workflow_dispatch']
+on:  workflow_dispatch
 jobs:
   Premerge:
     runs-on: ubuntu-latest
