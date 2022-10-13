@@ -29,14 +29,20 @@ module.exports = __toCommonJS(graphql_exports);
 var import_graphql_server = require("@redwoodjs/graphql-server");
 var directives_requireAuth_requireAuth = __toESM(require("../directives/requireAuth/requireAuth"));
 var directives_skipAuth_skipAuth = __toESM(require("../directives/skipAuth/skipAuth"));
+var sdls_users_sdl = __toESM(require("../graphql/users.sdl"));
+var services_users_users = __toESM(require("../services/users/users"));
+var import_auth = require("../lib/auth");
 var import_db = require("../lib/db");
 var import_logger = require("../lib/logger");
 let directives = {};
 directives.requireAuth_requireAuth = directives_requireAuth_requireAuth;
 directives.skipAuth_skipAuth = directives_skipAuth_skipAuth;
 let sdls = {};
+sdls.users_sdl = sdls_users_sdl;
 let services = {};
+services.users_users = services_users_users;
 const handler = (0, import_graphql_server.createGraphQLHandler)({
+  getCurrentUser: import_auth.getCurrentUser,
   loggerConfig: {
     logger: import_logger.logger,
     options: {}
