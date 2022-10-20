@@ -1,12 +1,12 @@
-import { Box, Button, Flex } from '@chakra-ui/react'
+import { Button, Flex } from '@chakra-ui/react'
 
 const LandingPageFab = () => {
   return (
-    <Box as="section">
-      <Flex position={'sticky'} top={'90vh'} justifyContent={'center'}>
-        <Button size="lg">Let me in</Button>
-      </Flex>
-    </Box>
+    <Flex position={'sticky'} top={'90vh'} justifyContent={'center'} zIndex={3}>
+      <Button backgroundColor={'yellow.300'} border={'2px'} size="lg">
+        Let me in
+      </Button>
+    </Flex>
   )
 }
 

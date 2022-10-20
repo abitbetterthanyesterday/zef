@@ -1,4 +1,11 @@
-import { Box, Button, Flex, Input } from '@chakra-ui/react'
+import {
+  Box,
+  Button,
+  Flex,
+  Input,
+  InputGroup,
+  InputRightElement
+} from '@chakra-ui/react'
 const LandingPageHero = () => {
   return (
     <Box as="section">
@@ -12,8 +19,18 @@ const LandingPageHero = () => {
         paddingX={8}
       >
         <Box background={'yellow.200'} height={80} width={80} />
-        <Input />
-        <Button size="lg">Post an ad</Button>
+        <InputGroup>
+          <Input borderRadius={'xl'} border={'2px'} borderColor={'gray.900'} />
+          <InputRightElement>🔍</InputRightElement>
+        </InputGroup>
+        <Button
+          size="lg"
+          leftIcon={<span>🚀</span>}
+          border={'2px'}
+          backgroundColor={'yellow.300'}
+        >
+          Post an ad
+        </Button>
       </Flex>
     </Box>
   )

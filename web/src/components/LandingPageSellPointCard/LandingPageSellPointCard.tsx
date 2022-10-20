@@ -1,4 +1,4 @@
-import { VStack, Heading, Text, Box } from '@chakra-ui/react'
+import { Box, Heading, Text, VStack } from '@chakra-ui/react'
 const LandingPageSellPointCard = () => {
   return (
     <VStack
@@ -6,7 +6,7 @@ const LandingPageSellPointCard = () => {
       w={'100%'}
       alignItems={'stretch'}
       padding={4}
-      borderRadius={8}
+      borderRadius={'xl'}
       border={'2px'}
     >
       <Heading>Heading</Heading>

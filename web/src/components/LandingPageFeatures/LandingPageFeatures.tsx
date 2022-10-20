@@ -6,9 +6,26 @@ const LandingPageFeatures = () => {
     <Box>
       <VStack>
         <Heading>Feature packed</Heading>
-        <Stack>
+        <Stack gap="sm">
+          <LandingPageFeatureCard />
+          <LandingPageFeatureCard />
+          <LandingPageFeatureCard />
           <LandingPageFeatureCard />
         </Stack>
+        <Heading>And more to come</Heading>
+        <Box
+          style={{
+            WebkitMaskImage: 'linear-gradient(black, transparent 90%)',
+            zIndex: -1,
+          }}
+        >
+          <Stack gap={'sm'}>
+            <LandingPageFeatureCard />
+            <LandingPageFeatureCard />
+            <LandingPageFeatureCard />
+            <LandingPageFeatureCard />
+          </Stack>
+        </Box>
       </VStack>
     </Box>
   )
