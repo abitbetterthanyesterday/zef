@@ -1,16 +1,18 @@
-import { Box, Flex, Heading, Stack, Text, VStack } from '@chakra-ui/react'
+import { Box, Heading, Stack } from '@chakra-ui/react'
 
 import LandingPageSellPointCard from '../LandingPageSellPointCard/LandingPageSellPointCard'
 
 const LandingPageSellPointsList = () => {
   return (
-    <Stack alignItems={'center'} width={'100vw'} padding={4} gap={8}>
-      <Heading>Why Zefo?</Heading>
-      <LandingPageSellPointCard />
-      <LandingPageSellPointCard />
-      <LandingPageSellPointCard />
-      <LandingPageSellPointCard />
-    </Stack>
+    <Box as="section">
+      <Stack alignItems={'center'} gap={8}>
+        <Heading>Why Zefo?</Heading>
+        <LandingPageSellPointCard />
+        <LandingPageSellPointCard />
+        <LandingPageSellPointCard />
+        <LandingPageSellPointCard />
+      </Stack>
+    </Box>
   )
 }
 

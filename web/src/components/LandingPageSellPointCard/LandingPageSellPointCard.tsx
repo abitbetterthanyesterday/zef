@@ -10,7 +10,12 @@ const LandingPageSellPointCard = () => {
       border={'2px'}
     >
       <Heading>Heading</Heading>
-      <Box h={2} border={'2px'} borderRadius={2} />
+      <Box
+        h={2}
+        border={'2px'}
+        borderRadius={'full'}
+        background={'yellow.300'}
+      />
       <Text>
         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Debitis unde
         dolores ad, molestias quaerat, dolorem consequuntur, nemo eaque fugit
