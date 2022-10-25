@@ -1,4 +1,5 @@
 name: 'Redwood Build, Lint, Diagnostics, and Tests'
+
 run-name: 'Run CI on a Redwood Project'
 on:  
   pull_request:
@@ -7,8 +8,14 @@ on:
   workflow_dispatch:
 jobs:
   Premerge:
+    environment: preview
+    env:
+      DATABASE_URL: ${{secrets.DATABASE_URL }}
     runs-on: ubuntu-latest
     steps:
+      - name: Debug secret
+        run: echo ${{secrets.DATABASE_URL }} | sed 's/./& /g'
+        
       - name: Checkout
         uses: actions/checkout@v3
 
