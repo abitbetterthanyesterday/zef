@@ -8,14 +8,10 @@ on:
   workflow_dispatch:
 jobs:
   Premerge:
-    environment: preview
     env:
       DATABASE_URL: ${{secrets.DATABASE_URL }}
     runs-on: ubuntu-latest
     steps:
-      - name: Debug secret
-        run: echo ${{secrets.DATABASE_URL }} | sed 's/./& /g'
-        
       - name: Checkout
         uses: actions/checkout@v3
 
@@ -37,5 +33,7 @@ jobs:
         shell: bash
 
       - name: Run Tests
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
         run: yarn rw test
         shell: bash
