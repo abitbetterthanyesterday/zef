@@ -1,8 +1,10 @@
-import './scaffold.css'
 import './index.css'
+import './scaffold.css'
 
 import { ChakraProvider, ColorModeScript, extendTheme } from '@chakra-ui/react'
 import * as theme from 'config/chakra.config'
+
+import '@fontsource/patrick-hand'
 
 import { AuthProvider } from '@redwoodjs/auth'
 import WebAuthnClient from '@redwoodjs/auth/webAuthn'

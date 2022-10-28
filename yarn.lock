@@ -2257,6 +2257,11 @@
     fastify-plugin "^4.0.0"
     uri-js "^4.2.1"
 
+"@fontsource/patrick-hand@^4.5.9":
+  version "4.5.9"
+  resolved "https://registry.yarnpkg.com/@fontsource/patrick-hand/-/patrick-hand-4.5.9.tgz#893fc001032ee5dced565f2dd688e1de55fdf408"
+  integrity sha512-s58HoOaNLdzbfZiQG4fJ1EyuJOkIZmM5JqER6JVxpxjc6Ehy8DqtId3CETZlmwkfY6ppOmvQtHfHAyTiN8E0Ww==
+
 "@gar/promisify@^1.0.1":
   version "1.1.3"
   resolved "https://registry.yarnpkg.com/@gar/promisify/-/promisify-1.1.3.tgz#555193ab2e3bb3b6adc3d551c9c030d9e860daf6"
