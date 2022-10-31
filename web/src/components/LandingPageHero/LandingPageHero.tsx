@@ -27,7 +27,12 @@ const LandingPageHero = () => {
           alignItems={'center'}
           gap={8}
         >
-          <Heading size="4xl">Zefo</Heading>
+          <Box position={'relative'}>
+            <Heading fontSize={'12rem'}>Zefo</Heading>
+            <Box position="absolute" top="-20%" left={'-15rem'} zIndex={-1}>
+              <LogoV1 />
+            </Box>
+          </Box>
           <Heading size="2xl">
             The zero bullsh*t paragliding marketplace
           </Heading>
@@ -51,9 +56,6 @@ const LandingPageHero = () => {
             Post an ad
           </Button>
         </Flex>
-        <Box height={80} width={80} position="absolute" zIndex={0} bottom={12}>
-          <LogoV1 />
-        </Box>
       </Flex>
     </Box>
   )
