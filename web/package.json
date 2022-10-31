@@ -17,6 +17,7 @@
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
     "@fontsource/patrick-hand": "^4.5.9",
+    "@heroicons/react": "^2.0.12",
     "@redwoodjs/auth": "3.1.1",
     "@redwoodjs/forms": "3.1.1",
     "@redwoodjs/router": "3.1.1",

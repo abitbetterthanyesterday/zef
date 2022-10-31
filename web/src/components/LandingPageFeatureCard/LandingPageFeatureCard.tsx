@@ -1,4 +1,5 @@
 import { Center, Flex, Heading, Text, VStack } from '@chakra-ui/react'
+import { FireIcon } from '@heroicons/react/24/outline'
 
 const LandingPageFeatureCard = () => {
   return (
@@ -10,7 +11,7 @@ const LandingPageFeatureCard = () => {
         justifyContent="center"
         background={'yellow.300'}
       >
-        🚀
+        <FireIcon height={24} />
       </Center>
       <VStack alignItems={'flex-start'} borderLeft={'2px'} padding={4}>
         <Heading size="sm">Feature name</Heading>
