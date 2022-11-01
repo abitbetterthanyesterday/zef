@@ -12,7 +12,7 @@ const HomePage = () => {
   return (
     <Box
       position={'relative'}
-      backgroundImage={'logo-bg.png'}
+      backgroundImage={'logo-bg-2.png'}
       backgroundSize={'32rem'}
     >
       <Container as="main">
