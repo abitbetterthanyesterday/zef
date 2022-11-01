@@ -1,4 +1,4 @@
-import { Container } from '@chakra-ui/react'
+import { Box, Container } from '@chakra-ui/react'
 
 import { MetaTags } from '@redwoodjs/web'
 
@@ -10,7 +10,11 @@ import LandingPageSellPointsList from 'src/components/LandingPageSellPointsList/
 
 const HomePage = () => {
   return (
-    <>
+    <Box
+      position={'relative'}
+      backgroundImage={'logo-bg.png'}
+      backgroundSize={'32rem'}
+    >
       <Container as="main">
         <MetaTags
           title="Zefo"
@@ -22,7 +26,7 @@ const HomePage = () => {
         <LandingPageFeatures />
       </Container>
       <LandingPageFooter />
-    </>
+    </Box>
   )
 }
 
