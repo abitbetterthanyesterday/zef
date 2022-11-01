@@ -1,5 +1,10 @@
 import { Box, Heading, Text, VStack } from '@chakra-ui/react'
-const LandingPageSellPointCard = () => {
+
+import { SellPointContent } from '../LandingPageSellPointsList/content'
+
+interface Props extends SellPointContent {}
+
+const LandingPageSellPointCard = ({ title, content }: Props) => {
   return (
     <VStack
       flexGrow={1}
@@ -8,20 +13,18 @@ const LandingPageSellPointCard = () => {
       padding={4}
       borderRadius={'xl'}
       border={'2px'}
+      marginTop={0}
     >
-      <Heading>Heading</Heading>
+      <Heading>{title}</Heading>
       <Box
         h={2}
         border={'2px'}
         borderRadius={'full'}
         background={'yellow.300'}
       />
-      <Text>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Debitis unde
-        dolores ad, molestias quaerat, dolorem consequuntur, nemo eaque fugit
-        eveniet quo molestiae! Soluta quo temporibus aspernatur saepe deserunt
-        quas incidunt.
-      </Text>
+      {content.map((sentence, key) => (
+        <Text key={key}>{sentence}</Text>
+      ))}
     </VStack>
   )
 }
