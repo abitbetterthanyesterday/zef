@@ -3,7 +3,12 @@ import { FireIcon } from '@heroicons/react/24/outline'
 
 const LandingPageFeatureCard = () => {
   return (
-    <Flex border={'2px'} borderRadius={'xl'} overflow={'hidden'}>
+    <Flex
+      border={'2px'}
+      borderRadius={'xl'}
+      overflow={'hidden'}
+      background={'white'}
+    >
       <Center
         flexGrow={0}
         padding={4}
@@ -13,7 +18,12 @@ const LandingPageFeatureCard = () => {
       >
         <FireIcon height={24} />
       </Center>
-      <VStack alignItems={'flex-start'} borderLeft={'2px'} padding={4}>
+      <VStack
+        alignItems={'flex-start'}
+        borderLeft={'2px'}
+        padding={4}
+        background={'white'}
+      >
         <Heading size="sm">Feature name</Heading>
         <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit.</Text>
       </VStack>
