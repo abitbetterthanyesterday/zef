@@ -2,10 +2,11 @@ import { useEffect, useRef, useState } from 'react'
 
 import { useAuth } from '@redwoodjs/auth'
 import {
-  FieldError, Form,
+  FieldError,
+  Form,
   Label,
   PasswordField,
-  Submit
+  Submit,
 } from '@redwoodjs/forms'
 import { navigate, routes } from '@redwoodjs/router'
 import { MetaTags } from '@redwoodjs/web'

@@ -7,7 +7,7 @@ import {
   InputGroup,
   InputRightElement,
   Spacer,
-  VStack
+  VStack,
 } from '@chakra-ui/react'
 import { MagnifyingGlassIcon, NewspaperIcon } from '@heroicons/react/24/outline'
 
