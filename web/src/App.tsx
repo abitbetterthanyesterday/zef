@@ -1,22 +1,29 @@
-import './scaffold.css'
+import '@fontsource/patrick-hand'
 import './index.css'
+import './scaffold.css'
 
-import { FatalErrorBoundary, RedwoodProvider } from '@redwoodjs/web'
+import { ChakraProvider, ColorModeScript } from '@chakra-ui/react'
+import theme from 'config/chakra.config'
 
 import { AuthProvider } from '@redwoodjs/auth'
-import FatalErrorPage from 'src/pages/FatalErrorPage'
-import { RedwoodApolloProvider } from '@redwoodjs/web/apollo'
-import Routes from 'src/Routes'
 import WebAuthnClient from '@redwoodjs/auth/webAuthn'
+import { FatalErrorBoundary, RedwoodProvider } from '@redwoodjs/web'
+import { RedwoodApolloProvider } from '@redwoodjs/web/apollo'
+
+import FatalErrorPage from 'src/pages/FatalErrorPage'
+import Routes from 'src/Routes'
 
 const App = () => (
   <FatalErrorBoundary page={FatalErrorPage}>
     <RedwoodProvider titleTemplate="%PageTitle | %AppTitle">
-      <AuthProvider type="dbAuth" client={WebAuthnClient}>
-        <RedwoodApolloProvider>
-          <Routes />
-        </RedwoodApolloProvider>
-      </AuthProvider>
+      <ColorModeScript />
+      <ChakraProvider theme={theme}>
+        <AuthProvider type="dbAuth" client={WebAuthnClient}>
+          <RedwoodApolloProvider>
+            <Routes />
+          </RedwoodApolloProvider>
+        </AuthProvider>
+      </ChakraProvider>
     </RedwoodProvider>
   </FatalErrorBoundary>
 )

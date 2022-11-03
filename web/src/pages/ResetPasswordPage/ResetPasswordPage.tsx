@@ -2,11 +2,11 @@ import { useEffect, useRef, useState } from 'react'
 
 import { useAuth } from '@redwoodjs/auth'
 import {
+  FieldError,
   Form,
   Label,
   PasswordField,
   Submit,
-  FieldError,
 } from '@redwoodjs/forms'
 import { navigate, routes } from '@redwoodjs/router'
 import { MetaTags } from '@redwoodjs/web'
@@ -34,7 +34,7 @@ const ResetPasswordPage = ({ resetToken }: { resetToken: string }) => {
       }
     }
     validateToken()
-  }, [])
+  }, [resetToken, validateResetToken])
 
   const passwordRef = useRef<HTMLInputElement>(null)
   useEffect(() => {
