@@ -1,7 +1,11 @@
 import { Center, Flex, Heading, Text, VStack } from '@chakra-ui/react'
 import { FireIcon } from '@heroicons/react/24/outline'
 
-const LandingPageFeatureCard = () => {
+import { FeatureContent } from '../LandingPageFeatures/content'
+
+interface Props extends FeatureContent {}
+
+const LandingPageFeatureCard = ({ title, content }: Props) => {
   return (
     <Flex
       border={'2px'}
@@ -24,8 +28,12 @@ const LandingPageFeatureCard = () => {
         padding={4}
         background={'white'}
       >
-        <Heading size="sm">Feature name</Heading>
-        <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit.</Text>
+        <Heading size="sm">{title}</Heading>
+        <VStack alignItems="start">
+          {content.map((sentence, key) => (
+            <Text key={key}>{sentence}</Text>
+          ))}
+        </VStack>
       </VStack>
     </Flex>
   )
