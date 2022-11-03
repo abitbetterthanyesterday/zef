@@ -3,7 +3,7 @@ import { FireIcon } from '@heroicons/react/24/outline'
 
 import { FeatureContent } from '../LandingPageFeatures/content'
 
-interface Props extends FeatureContent {}
+type Props = Pick<FeatureContent, 'title' | 'content'>
 
 const LandingPageFeatureCard = ({ title, content }: Props) => {
   return (

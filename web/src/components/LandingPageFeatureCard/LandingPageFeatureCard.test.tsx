@@ -1,4 +1,4 @@
-import { render } from '@redwoodjs/testing/web'
+import { render, screen } from '@redwoodjs/testing/web'
 
 import LandingPageFeatureCard from './LandingPageFeatureCard'
 
@@ -6,9 +6,22 @@ import LandingPageFeatureCard from './LandingPageFeatureCard'
 //    https://redwoodjs.com/docs/testing#testing-components
 
 describe('LandingPageFeatureCard', () => {
+  const defaultProps = { title: 'hello', content: ['world', 'and', 'zefo'] }
   it('renders successfully', () => {
     expect(() => {
-      render(<LandingPageFeatureCard />)
+      render(<LandingPageFeatureCard {...defaultProps} />)
     }).not.toThrow()
+  })
+
+  it('should render the title, and the content', () => {
+    render(<LandingPageFeatureCard {...defaultProps} />)
+
+    expect(
+      screen.getByRole('heading', { name: new RegExp(defaultProps.title, 'i') })
+    ).toBeInTheDocument()
+
+    for (const sentence of defaultProps.content) {
+      expect(screen.getByText(new RegExp(sentence, 'i'))).toBeInTheDocument()
+    }
   })
 })

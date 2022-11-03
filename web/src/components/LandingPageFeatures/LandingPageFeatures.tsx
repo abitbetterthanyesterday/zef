@@ -3,13 +3,10 @@ import { Box, Heading, Stack, VStack } from '@chakra-ui/react'
 import LandingPageFeatureCard from '../LandingPageFeatureCard/LandingPageFeatureCard'
 
 import { featuresContent } from './content'
+
 const LandingPageFeatures = () => {
-  const currentFeatures = featuresContent.filter(
-    ({ isFuture }) => isFuture === false
-  )
-  const futureFeatures = featuresContent.filter(
-    ({ isFuture }) => isFuture === true
-  )
+  const currentFeatures = featuresContent.filter(({ isFuture }) => !isFuture)
+  const futureFeatures = featuresContent.filter(({ isFuture }) => isFuture)
 
   return (
     <Box paddingBottom={24}>
