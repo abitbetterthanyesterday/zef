@@ -4,7 +4,7 @@ const LandingPageFooter = () => {
   return (
     <Box as="footer" bgColor={'yellow.300'} padding={4} width="100%">
       <Center>Zefo © 2022</Center>
-      <Center>Made with 🍌 by Alo</Center>
+      <Center>Made by Alo 🙂</Center>
     </Box>
   )
 }
