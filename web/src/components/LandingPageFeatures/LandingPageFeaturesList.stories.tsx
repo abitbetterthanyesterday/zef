@@ -13,13 +13,13 @@
 
 import type { ComponentMeta } from '@storybook/react'
 
-import LandingPageFeatures from './LandingPageFeatures'
+import LandingPageFeaturesList from './LandingPageFeaturesList'
 
 export const generated = () => {
-  return <LandingPageFeatures />
+  return <LandingPageFeaturesList />
 }
 
 export default {
-  title: 'Components/LandingPageFeatures',
-  component: LandingPageFeatures,
-} as ComponentMeta<typeof LandingPageFeatures>
+  title: 'Components/LandingPageFeaturesList',
+  component: LandingPageFeaturesList,
+} as ComponentMeta<typeof LandingPageFeaturesList>
