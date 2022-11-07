@@ -1,6 +1,7 @@
 import { db } from 'api/src/lib/db'
 
 import { hashPassword } from '@redwoodjs/api'
+
 import * as content from '../api/content/data'
 
 const printHeader = (header: string) => {
@@ -28,7 +29,7 @@ export default async () => {
     // and associated `salt` to their record. Here's how to create them using
     // the same algorithm that dbAuth uses internally:
     //
-	 printHeader('Seeding the database')
+    printHeader('Seeding the database')
 
     printHeader('Users')
 
@@ -49,11 +50,14 @@ export default async () => {
     }
 
     printHeader('Brands')
-    await db.brand.createMany({ data: content.brands.map((brand) => ({name:brand})) })
+    await db.brand.createMany({
+      data: content.brands.map((brand) => ({ name: brand })),
+    })
 
-	 printHeader('Categories')
-    await db.brand.createMany({ data: content.categories.map((category) => ({name:category})) })
-
+    printHeader('Categories')
+    await db.brand.createMany({
+      data: content.categories.map((category) => ({ name: category })),
+    })
   } catch (error) {
     console.warn('Please define your seed data.')
     console.error(error)
