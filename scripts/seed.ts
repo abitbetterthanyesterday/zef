@@ -1,6 +1,18 @@
 import { db } from 'api/src/lib/db'
 
 import { hashPassword } from '@redwoodjs/api'
+import * as content from '../api/content/data'
+
+const printHeader = (header: string) => {
+  const spacer = Array(header.length + 4)
+    .fill('=')
+    .join('')
+  console.log('\n')
+  console.log(spacer)
+  console.log(`= ${header} =`)
+  console.log(spacer)
+  console.log('\n')
+}
 
 export default async () => {
   try {
@@ -9,10 +21,6 @@ export default async () => {
     // Seeds automatically with `yarn rw prisma migrate dev` and `yarn rw prisma migrate reset`
     //
 
-    console.log(
-      "\nSeeding database\n"
-    )
-
     // Note: if using PostgreSQL, using `createMany` to insert multiple records is much faster
     // @see: https://www.prisma.io/docs/reference/api-reference/prisma-client-reference#createmany
 
@@ -20,6 +28,10 @@ export default async () => {
     // and associated `salt` to their record. Here's how to create them using
     // the same algorithm that dbAuth uses internally:
     //
+	 printHeader('Seeding the database')
+
+    printHeader('Users')
+
     const users = [
       { username: 'admin', email: 'admin@test.com', password: 'test' },
     ]
@@ -33,8 +45,15 @@ export default async () => {
           salt,
         },
       })
-		console.log(`Created user ${user.username}`)
+      console.log(`- Created user: ${user.username}`)
     }
+
+    printHeader('Brands')
+    await db.brand.createMany({ data: content.brands.map((brand) => ({name:brand})) })
+
+	 printHeader('Categories')
+    await db.brand.createMany({ data: content.categories.map((category) => ({name:category})) })
+
   } catch (error) {
     console.warn('Please define your seed data.')
     console.error(error)
