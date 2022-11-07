@@ -1,5 +1,3 @@
-import type { Brand } from '@prisma/client'
-
 import { brands } from './brands'
 import type { StandardScenario } from './brands.scenarios'
 

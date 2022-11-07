@@ -1,5 +1,3 @@
-import type { Currency } from '@prisma/client'
-
 import { currencies } from './currencies'
 import type { StandardScenario } from './currencies.scenarios'
 

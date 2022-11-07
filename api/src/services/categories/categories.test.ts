@@ -1,5 +1,3 @@
-import type { Category } from '@prisma/client'
-
 import { categories } from './categories'
 import type { StandardScenario } from './categories.scenarios'
 
