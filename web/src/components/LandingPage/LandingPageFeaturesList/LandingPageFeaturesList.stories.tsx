@@ -4,8 +4,8 @@
 // ```tsx
 // import type { ComponentStory } from '@storybook/react'
 //
-// export const generated: ComponentStory<typeof LandingPageHero> = (args) => {
-//   return <LandingPageHero {...args} />
+// export const generated: ComponentStory<typeof LandingPageFeatures> = (args) => {
+//   return <LandingPageFeatures {...args} />
 // }
 // ```
 //
@@ -13,13 +13,13 @@
 
 import type { ComponentMeta } from '@storybook/react'
 
-import LandingPageHero from './LandingPageHero'
+import LandingPageFeaturesList from './LandingPageFeaturesList'
 
 export const generated = () => {
-  return <LandingPageHero />
+  return <LandingPageFeaturesList />
 }
 
 export default {
-  title: 'Components/LandingPageHero',
-  component: LandingPageHero,
-} as ComponentMeta<typeof LandingPageHero>
+  title: 'Components/LandingPageFeaturesList',
+  component: LandingPageFeaturesList,
+} as ComponentMeta<typeof LandingPageFeaturesList>

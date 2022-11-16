@@ -1,7 +1,7 @@
 import { Center, Flex, Heading, Text, VStack } from '@chakra-ui/react'
 import { FireIcon } from '@heroicons/react/24/outline'
 
-import { FeatureContent } from '../LandingPageFeatures/content'
+import { FeatureContent } from '../LandingPageFeaturesList/content'
 
 type Props = Pick<FeatureContent, 'title' | 'content'>
 
