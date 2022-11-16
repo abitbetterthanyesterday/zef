@@ -28,7 +28,7 @@ export const sellPointsContent: SellPointContent[] = [
   {
     title: 'For paragliders, by paragliders.',
     content: [
-      'Don’t miss opportunities because you have entered the wrong keyword. Zefo is for paragliding only, which means that it is tailored for paragliding. ',
+      'Don’t miss opportunities because you have entered the wrong keyword. Zefo is for paragliding only, which means that it is tailored for paragliding.',
     ],
   },
   {

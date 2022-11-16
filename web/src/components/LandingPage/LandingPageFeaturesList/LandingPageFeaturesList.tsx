@@ -4,7 +4,7 @@ import LandingPageFeatureCard from '../LandingPageFeatureCard/LandingPageFeature
 
 import { featuresContent } from './content'
 
-const LandingPageFeatures = () => {
+const LandingPageFeaturesList = () => {
   const currentFeatures = featuresContent.filter(({ isFuture }) => !isFuture)
   const futureFeatures = featuresContent.filter(({ isFuture }) => isFuture)
 
@@ -35,4 +35,4 @@ const LandingPageFeatures = () => {
   )
 }
 
-export default LandingPageFeatures
+export default LandingPageFeaturesList
