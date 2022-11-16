@@ -3,9 +3,6 @@ import { render, screen } from '@redwoodjs/testing/web'
 import { featuresContent } from './content'
 import LandingPageFeaturesList from './LandingPageFeaturesList'
 
-//   Improve this test with help from the Redwood Testing Doc:
-//    https://redwoodjs.com/docs/testing#testing-components
-
 describe('LandingPageFeatures', () => {
   it('renders successfully', () => {
     expect(() => {
