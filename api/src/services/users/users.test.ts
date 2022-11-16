@@ -25,6 +25,7 @@ describe('users', () => {
   scenario('creates a user', async () => {
     const result = await createUser({
       input: {
+        username: 'username3',
         email: 'String9445457',
         hashedPassword: 'String',
         salt: 'String',

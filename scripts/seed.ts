@@ -1,5 +1,19 @@
-import type { Prisma } from '@prisma/client'
 import { db } from 'api/src/lib/db'
+
+import { hashPassword } from '@redwoodjs/api'
+
+import * as content from '../api/content/data'
+
+const printHeader = (header: string) => {
+  const spacer = Array(header.length + 4)
+    .fill('=')
+    .join('')
+  console.log('\n')
+  console.log(spacer)
+  console.log(`= ${header} =`)
+  console.log(spacer)
+  console.log('\n')
+}
 
 export default async () => {
   try {
@@ -7,55 +21,43 @@ export default async () => {
     // Manually seed via `yarn rw prisma db seed`
     // Seeds automatically with `yarn rw prisma migrate dev` and `yarn rw prisma migrate reset`
     //
-    // Update "const data = []" to match your data model and seeding needs
-    //
-    const data: Prisma.UserExampleCreateArgs['data'][] = [
-      // To try this example data with the UserExample model in schema.prisma,
-      // uncomment the lines below and run 'yarn rw prisma migrate dev'
-      //
-      // { name: 'alice', email: 'alice@example.com' },
-      // { name: 'mark', email: 'mark@example.com' },
-      // { name: 'jackie', email: 'jackie@example.com' },
-      // { name: 'bob', email: 'bob@example.com' },
-    ]
-    console.log(
-      "\nUsing the default './scripts/seed.{js,ts}' template\nEdit the file to add seed data\n"
-    )
 
     // Note: if using PostgreSQL, using `createMany` to insert multiple records is much faster
     // @see: https://www.prisma.io/docs/reference/api-reference/prisma-client-reference#createmany
-    Promise.all(
-      //
-      // Change to match your data model and seeding needs
-      //
-      data.map(async (data: Prisma.UserExampleCreateArgs['data']) => {
-        const record = await db.userExample.create({ data })
-        console.log(record)
-      })
-    )
 
     // If using dbAuth and seeding users, you'll need to add a `hashedPassword`
     // and associated `salt` to their record. Here's how to create them using
     // the same algorithm that dbAuth uses internally:
     //
-    //   import { hashPassword } from '@redwoodjs/api'
-    //
-    //   const users = [
-    //     { name: 'john', email: 'john@example.com', password: 'secret1' },
-    //     { name: 'jane', email: 'jane@example.com', password: 'secret2' }
-    //   ]
-    //
-    //   for (user of users) {
-    //     const [hashedPassword, salt] = hashPassword(user.password)
-    //     await db.user.create({
-    //       data: {
-    //         name: user.name,
-    //         email: user.email,
-    //         hashedPassword,
-    //         salt
-    //       }
-    //     })
-    //   }
+    printHeader('Seeding the database')
+
+    printHeader('Users')
+
+    const users = [
+      { username: 'admin', email: 'admin@test.com', password: 'test' },
+    ]
+    for (const user of users) {
+      const [hashedPassword, salt] = hashPassword(user.password)
+      await db.user.create({
+        data: {
+          username: user.username,
+          email: user.email,
+          hashedPassword,
+          salt,
+        },
+      })
+      console.log(`- Created user: ${user.username}`)
+    }
+
+    printHeader('Brands')
+    await db.brand.createMany({
+      data: content.brands.map((brand) => ({ name: brand })),
+    })
+
+    printHeader('Categories')
+    await db.brand.createMany({
+      data: content.categories.map((category) => ({ name: category })),
+    })
   } catch (error) {
     console.warn('Please define your seed data.')
     console.error(error)
