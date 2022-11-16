@@ -10,8 +10,10 @@ import {
   VStack,
 } from '@chakra-ui/react'
 import { MagnifyingGlassIcon, NewspaperIcon } from '@heroicons/react/24/outline'
+import { navigate, routes } from '@redwoodjs/router'
 
 import LogoV1 from '../LogoV1/LogoV1'
+
 const LandingPageHero = () => {
   return (
     <Box as="section">
@@ -99,6 +101,7 @@ const LandingPageHero = () => {
               leftIcon={<NewspaperIcon height={24} width={24} />}
               border={'2px'}
               backgroundColor={'yellow.300'}
+              onClick={() => navigate(routes.home())}
             >
               Post an ad
             </Button>
