@@ -2,7 +2,7 @@ import { Box, Container } from '@chakra-ui/react'
 
 import { MetaTags } from '@redwoodjs/web'
 
-import LandingPageFab from 'src/components/LandingPage/LandingPageFAB'
+import LandingPageFab from 'src/components/LandingPage/LandingPageFab'
 import LandingPageFeaturesList from 'src/components/LandingPage/LandingPageFeaturesList'
 import LandingPageFooter from 'src/components/LandingPage/LandingPageFooter'
 import LandingPageHero from 'src/components/LandingPage/LandingPageHero'

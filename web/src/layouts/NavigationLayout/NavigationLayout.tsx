@@ -1,7 +1,9 @@
 import {
   Box,
   Button,
-  Flex, IconButtonProps,
+  ButtonProps,
+  Flex,
+  IconButtonProps,
   VStack
 } from '@chakra-ui/react'
 import {
@@ -14,20 +16,30 @@ type NavigationLayoutProps = {
   children?: React.ReactNode
 }
 
-type NavButton = Pick<IconButtonProps, 'icon'> & {
+type NavButton = {
   label: string
+  icon: ButtonProps['leftIcon']
   ariaLabel: IconButtonProps['aria-label']
+  order: number
 }
 
+export const mobileNavButtons: NavButton[] = [
+  { icon: <HomeIcon />, ariaLabel: 'home', label: 'home', order: 0 },
+  {
+    icon: <MagnifyingGlassIcon />,
+    ariaLabel: 'search ads',
+    label: 'search',
+    order: 1,
+  },
+  {
+    icon: <NewspaperIcon />,
+    ariaLabel: 'post an ad',
+    label: 'post an ad',
+    order: 2,
+  },
+]
+
 const NavigationLayout = ({ children }: NavigationLayoutProps) => {
-  const navButtonStyle = {
-    variant: 'ghost',
-  }
-  const mobileNavButtons: NavButton[] = [
-    { icon: <HomeIcon />, ariaLabel: 'home', label: 'home' },
-    { icon: <MagnifyingGlassIcon />, ariaLabel: 'search ads', label: 'search' },
-    { icon: <NewspaperIcon />, ariaLabel: 'post an ad', label: 'post an ad' },
-  ]
   return (
     <VStack minH={'100vh'} alignItems="stretch">
       <Box flexGrow={1}>{children}</Box>
@@ -37,13 +49,33 @@ const NavigationLayout = ({ children }: NavigationLayoutProps) => {
         position="sticky"
         bottom={0}
         justifyContent="space-evenly"
+        padding={2}
+        background="gray.200"
       >
-        {mobileNavButtons.map(({ icon, label, ariaLabel }, idx) => (
-          <Button aria-label={ariaLabel} key={idx} {...navButtonStyle}>
-            {icon}
-            {label}
-          </Button>
-        ))}
+        {mobileNavButtons
+          .sort(({ order: orderA }, { order: orderB }) =>
+            orderA > orderB ? 1 : -1
+          )
+          .map(({ icon, label, ariaLabel }, idx) => (
+            <Button
+              aria-label={ariaLabel}
+              variant="ghost"
+              height={'max-content'}
+              key={idx}
+            >
+              <Flex direction={'column'} alignItems="center" padding={2}>
+                <Flex
+                  height="48px"
+                  fontSize={'48px'}
+                  width="48px"
+                  flexShrink={0}
+                >
+                  {icon}
+                </Flex>
+                {label}
+              </Flex>
+            </Button>
+          ))}
       </Flex>
     </VStack>
   )

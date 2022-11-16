@@ -1,6 +1,6 @@
 import { render } from '@redwoodjs/testing/web'
 
-import LandingPageFab from './LandingPageFAB'
+import LandingPageFab from './LandingPageFab'
 
 //   Improve this test with help from the Redwood Testing Doc:
 //    https://redwoodjs.com/docs/testing#testing-components
