@@ -1,15 +1,13 @@
 import {
   Box,
   Button,
-  Flex,
-  IconButton,
-  IconButtonProps,
-  VStack,
+  Flex, IconButtonProps,
+  VStack
 } from '@chakra-ui/react'
 import {
   HomeIcon,
   MagnifyingGlassIcon,
-  NewspaperIcon,
+  NewspaperIcon
 } from '@heroicons/react/24/outline'
 
 type NavigationLayoutProps = {
@@ -41,11 +39,7 @@ const NavigationLayout = ({ children }: NavigationLayoutProps) => {
         justifyContent="space-evenly"
       >
         {mobileNavButtons.map(({ icon, label, ariaLabel }, idx) => (
-          <Button
-            aria-label={ariaLabel}
-            key={idx}
-            {...navButtonStyle}
-          />
+          <Button aria-label={ariaLabel} key={idx} {...navButtonStyle}>
             {icon}
             {label}
           </Button>
