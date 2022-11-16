@@ -2,11 +2,11 @@ import { Box, Container } from '@chakra-ui/react'
 
 import { MetaTags } from '@redwoodjs/web'
 
-import LandingPageFab from 'src/components/LandingPageFAB/LandingPageFAB'
-import LandingPageFeaturesList from 'src/components/LandingPageFeatures/LandingPageFeaturesList'
-import LandingPageFooter from 'src/components/LandingPageFooter/LandingPageFooter'
-import LandingPageHero from 'src/components/LandingPageHero/LandingPageHero'
-import LandingPageSellPointsList from 'src/components/LandingPageSellPointsList/LandingPageSellPointsList'
+import LandingPageFab from 'src/components/LandingPage/LandingPageFAB'
+import LandingPageFeaturesList from 'src/components/LandingPage/LandingPageFeaturesList'
+import LandingPageFooter from 'src/components/LandingPage/LandingPageFooter'
+import LandingPageHero from 'src/components/LandingPage/LandingPageHero'
+import LandingPageSellPointsList from 'src/components/LandingPage/LandingPageSellPointsList'
 
 const HomePage = () => {
   return (
