@@ -1,8 +1,13 @@
-import { FormLabel, Radio, RadioGroup } from '@chakra-ui/react'
+import { Button, FormLabel, Input, Radio, RadioGroup } from '@chakra-ui/react'
 
-import { Form, useForm } from '@redwoodjs/forms'
+import { FormProvider, useForm } from '@redwoodjs/forms'
 import { MetaTags } from '@redwoodjs/web'
 
+interface FormValues {
+  brand: string
+  model: string
+  category: string
+}
 const PostAdPage = () => {
   const adCategories = [
     'wing',
@@ -10,24 +15,43 @@ const PostAdPage = () => {
     'rescue',
     'instruments & accessories',
   ]
-  const methods = useForm()
-  const { register } = methods
+  const methods = useForm<FormValues>()
+  const { register, handleSubmit } = methods
+
+  const onSubmit = (data) => {
+    console.log(data)
+  }
   return (
     <>
       <MetaTags title="PostAd" description="PostAd page" />
 
       <h1>PostAdPage</h1>
-      <Form {...methods}>
-        {/* Category */}
-        <RadioGroup title="category">
-          {adCategories.map((category) => (
-            <FormLabel key={category}>
-              {category}
-              <Radio {...register(category)} value={category} id={category} />
-            </FormLabel>
-          ))}
-        </RadioGroup>
-      </Form>
+      <FormProvider {...methods}>
+        <form onSubmit={handleSubmit(onSubmit)}>
+          {/* Category */}
+          <RadioGroup title="category">
+            {adCategories.map((category) => (
+              <FormLabel key={category}>
+                {category}
+                <Radio
+                  {...register('category')}
+                  value={category}
+                  id={category}
+                />
+              </FormLabel>
+            ))}
+          </RadioGroup>
+          <FormLabel>
+            Brand
+            <Input {...register('brand')} />
+          </FormLabel>
+          <FormLabel>
+            Model
+            <Input {...register('model')} />
+          </FormLabel>
+          <Button type="submit">Submit</Button>
+        </form>
+      </FormProvider>
     </>
   )
 }
