@@ -23,6 +23,7 @@ const Routes = () => {
 
       <Set wrap={NavigationLayout}>
         <Route path="/home" page={HomePage} name="home" />
+        <Route path="/post-ad" page={PostAdPage} name="postAd" />
       </Set>
     </Router>
   )
